@@ -13,17 +13,18 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
+    <js-module src="www/DatePicker.js" name="DatePicker">
+        <clobbers target="datePicker" />
+    </js-module>
+
     <!-- android -->
     <platform name="android">
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="DatePickerPlugin">
                 <param name="android-package" value="com.dileep.plugins.datepicker.DatePickerPlugin"/>
             </feature>
         </config-file>
-
-        <js-module src="www/DatePicker.js" name="DatePicker">
-            <clobbers target="datePicker" />
-        </js-module>
 
         <source-file src="src/android/DatePickerPlugin.java"      target-dir="src/com/dileep/plugins/datepicker" />
         <source-file src="src/android/DateTimePickerDialog.java"  target-dir="src/com/dileep/plugins/datepicker" />
@@ -31,6 +32,7 @@
 
     </platform>
 
+    <!-- ios -->
     <platform name="ios">
 
         <config-file target="config.xml" parent="/*">
@@ -38,10 +40,6 @@
                 <param name="ios-package" value="DatePicker"/>
             </feature>
         </config-file>
-
-        <js-module src="www/DatePicker.js" name="DatePicker">
-            <clobbers target="datePicker" />
-        </js-module>
 
         <header-file src="src/ios/DatePicker.h" />
         <source-file src="src/ios/DatePicker.m" />
